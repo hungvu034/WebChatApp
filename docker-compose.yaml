@@ -1,0 +1,32 @@
+version: '3.8'
+
+
+services:
+  appchat:
+    container_name: webchat
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: webchatapp:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 8080:80
+    depends_on:
+      - webchatdb
+
+  webchatdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: webchatdb
+    environment: 
+      SA_PASSWORD: "Password123"
+      ACCEPT_EULA: "Y"
+    restart: always
+    volumes:
+      - webchatdata:/var/lib/sqlserver/data
+    ports:
+      - "1433:1433"
+
+volumes:
+  webchatdata:
+    name: webchatdata

@@ -1,0 +1,56 @@
+Name: Web chat realtime 
+--- 
+Architect
+ASP.NET RESTFUL API 
+SignalR Hub
+// Fe Knockjs
+ASP.NET CORE Razor Page (Identity)
+Database Sql server 
+EntityFramework Core auto migration
+---
+Phase 1 (Research and POC)
+Task 0: Basic of ASP.NET CORE (Very Important)
+Basic concept of ASP.NET
+https://www.youtube.com/watch?v=FMSJsx_Juj0 
+https://www.youtube.com/watch?v=XqwH9P5rvYI
+https://xuanthulab.net/asp-net-core-tao-middleware-va-dang-ky-vao-pipeline-cua-ung-dung-web-c-csharp.html
+https://xuanthulab.net/asp-net-core-doc-va-ghi-request-va-response-xu-ly-truy-van-co-ban-upload-file-cookie-json.html
+https://xuanthulab.net/asp-net-core-cau-hinh-ung-dung-web-appsettings-json-va-inject-option-cho-cac-dich-vu-c-csharp.html
+
+Task 1: Research Restful API => output: 1 ctrinh restful cơ bản
+https://www.youtube.com/watch?v=_uZYOgzYheU&t=3158s
+
+Task 2: Research SignalR Hub
+https://www.youtube.com/playlist?list=PLThyvG1mlMzltDxuQj0uQw1TDu1gJUNeG
+
+Task 3: Research Identiy Extension for ASP.NET (Razor page)
+https://xuanthulab.net/asp-net-razor-su-dung-identity-de-tao-user-xac-thuc-dang-nhap-website.html
+
+Task 4: Migration code first with SqlServer& EF Core
+https://www.youtube.com/watch?v=XKUoPBsfOeQ
+https://xuanthulab.net/ef-core-tao-migration-trong-entityframework-voi-c-csharp.html
+
+---
+Phase 2: Write Model and Migrate database (Creating Model & Database design)
+Task 1: Write model and ViewModel/DTO for application 
+Task 2: Write DAO (Data Adapter Object) for application (DbContext, EntityFramework core and config relative in each column)
+Task 3: Migrate all model to Database (IdentityUser and Bussiness Model) 
+--- 
+Phase 3: Implement Application and develop back end features
+Task 1: Implement Identity Server for authen user  
+Task 2: Implement SignalR Hub for listen TCP/IP connect 
+Task 3: Write controller Restful API for app's bussiness 
+--- 
+Phase 4: Design Front end 
+Task 1: Coppy paste
+--- 
+Phase 5: (POC) Deploy 
+Task 1: Research for app's architect in azure 
+Task 2: Research to configure HTTPS 
+Task 2: Implement IAC 2 tier for app 
+Task 3: Implement CI/CD for front end , back end
+--- 
+Phase 6: Logging & Monitoring 
+Task 1: Implement logging in application tier 
+Task 2: Configure Azure Monitor to get log in application tier 
+Task 3: Monitoring for Azure Monitor and virtualize in Grafana  

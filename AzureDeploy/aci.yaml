@@ -1,0 +1,55 @@
+apiVersion: '2019-12-01'
+location: westus
+name: webchatdb-aci
+properties:
+  containers:
+    - name: webchatdb
+      properties:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        environmentVariables:
+          - name: SA_PASSWORD
+            value: Password123
+          - name: ACCEPT_EULA
+            value: Y
+        ports:
+          - port: 1433
+        volumeMounts:
+          - name: mystorage
+            mountPath: /var/lib/sqlserver/data
+        resources:
+          requests:
+            memoryInGB: 2
+            cpu: 1
+          limits:
+            memoryInGB: 2
+            cpu: 1
+    - name: webchatapp
+      properties:
+        image: hungvu034/webchat
+        ports:
+          - port: 80
+        environmentVariables:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: Development
+          # - name: ConnectionStrings:DefaultConnection
+            # value: Server=webchatdb,1433;Database=appchatdb;User Id=sa;Password=Password123;Multipleactiveresultsets=true;Persist Security Info=False;Encrypt=False
+        resources:
+          requests:
+            memoryInGB: 2
+            cpu: 1
+          limits:
+            memoryInGB: 2
+            cpu: 1
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+      - protocol: tcp
+        port: '1433'
+  volumes:
+    - name: mystorage
+      azureFile:
+        shareName: webchatdb
+        storageAccountName: tomwebchatstg
+        storageAccountKey: VbCZgxK2ym3OhTGdF/uxEgKOU04Lq1PIPZhZQGjLLMSobclCaOWqZDkW+tb0JWrHsrNY15RCNybZ+AStY13n/Q==
+
